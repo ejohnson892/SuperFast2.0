@@ -14,7 +14,7 @@ public class GamePanel extends JPanel {
 
     private MouseInputs mouseInputs;
     private float xDelta = 100, yDelta = 100;
-    private BufferedImage img;
+    private BufferedImage img, subImage;
     
     public GamePanel() {
         
@@ -32,7 +32,6 @@ public class GamePanel extends JPanel {
     //Image is not being found while grabbing
     private void importImg() {
         InputStream is = getClass().getResourceAsStream("/player_sprites.png");
-        System.out.println(is);
 
         try {
             img = ImageIO.read(is);
@@ -68,7 +67,8 @@ public class GamePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        //g.drawImage(null, x, y, null);
+        subImage = img.getSubimage(1*64, 8*40, 64, 40);
+        g.drawImage(subImage, (int)xDelta, (int)yDelta, 128, 80, null);
 
     }
 
