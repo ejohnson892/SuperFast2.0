@@ -39,7 +39,7 @@ public class GamePanel extends JPanel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-            
+          
     }
 
     private void setPanelSize() {
